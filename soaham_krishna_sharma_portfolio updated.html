@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- ==========================================================================
+       META TAGS & DOCUMENT TITLE
+       ========================================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal Resume Portfolio of Soaham Krishna Sharma — First-Year B.Tech Computer Science & Engineering Student at South Asian University.">
+  <title>Soaham Krishna Sharma | B.Tech CSE Portfolio</title>
+
+  <!-- Google Fonts: 'Inter' for clean UI & body, 'JetBrains Mono' for code/tags -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- ==========================================================================
+       STYLESHEET (CSS3 WITH CUSTOM PROPERTIES & RESPONSIVE DESIGN)
+       ========================================================================== -->
+  <style>
+    /* 1. CSS Variables for Light & Dark Themes */
+    :root {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --accent-primary: #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-soft: #eff6ff;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+      --nav-bg: rgba(248, 250, 252, 0.85);
+      --success-bg: #ecfdf5;
+      --success-text: #065f46;
+      --success-border: #a7f3d0;
+      --error-text: #dc2626;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --transition: all 0.25s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0b1120;
+      --bg-secondary: #111827;
+      --bg-tertiary: #1e293b;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-primary: #3b82f6;
+      --accent-hover: #60a5fa;
+      --accent-soft: rgba(59, 130, 246, 0.15);
+      --border-color: #1e293b;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      --nav-bg: rgba(11, 17, 32, 0.85);
+      --success-bg: rgba(16, 185, 129, 0.15);
+      --success-text: #6ee7b7;
+      --success-border: rgba(16, 185, 129, 0.3);
+      --error-text: #f87171;
+    }
+
+    /* 2. Global Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.65;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* Utility Container */
+    .container {
+      width: 90%;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* Section Spacing & Headers */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 2.75rem;
+    }
+
+    .section-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    /* 3. Sticky Navigation Bar */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+    }
+
+    .brand-badge {
+      background-color: var(--accent-primary);
+      color: #ffffff;
+      padding: 0.3rem 0.65rem;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--accent-primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .icon-btn:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+    }
+
+    /* 4. Hero Section */
+    .hero-section {
+      padding: 5.5rem 0 4.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--accent-soft);
+      color: var(--accent-primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent-primary);
+      border-radius: 50%;
+    }
+
+    .hero-name {
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-tagline {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 60ch;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background-color: var(--accent-primary);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      transform: translateY(-2px);
+    }
+
+    /* Stylized Profile Monogram Card (Zero external image dependency) */
+    .hero-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+
+    .avatar-circle {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1.25rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-primary), #6366f1);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    }
+
+    .hero-card-meta {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    /* 5. About Section */
+    .about-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .about-text {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .highlight-item strong {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--text-primary);
+    }
+
+    .highlight-item span {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* 6. Technical Skills Section (Categorized Pills, No Percentage Bars) */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .skill-category-card:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-3px);
+    }
+
+    .skill-category-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .skill-tag {
+      background-color: var(--bg-tertiary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .skill-category-card:hover .skill-tag {
+      background-color: var(--accent-soft);
+      color: var(--accent-primary);
+      border-color: transparent;
+    }
+
+    /* 7. Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .project-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      border-color: var(--accent-primary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .project-folder-icon {
+      color: var(--accent-primary);
+      background-color: var(--accent-soft);
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.65rem;
+      color: var(--text-primary);
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .project-tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .tech-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--accent-primary);
+      background-color: var(--accent-soft);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+    }
+
+    .project-action-btn {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-color);
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .project-action-btn:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* 8. Education & Leadership Timeline */
+    .edu-leadership-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.5rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 1.75rem;
+      border-left: 2px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -2.22rem;
+      top: 1.65rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: var(--accent-primary);
+      border: 3px solid var(--bg-primary);
+    }
+
+    .timeline-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent-primary);
+      display: inline-block;
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-org {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .score-badge {
+      display: inline-block;
+      background-color: var(--accent-soft);
+      color: var(--accent-primary);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 6px;
+    }
+
+    .leadership-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      height: fit-content;
+    }
+
+    .leadership-badge {
+      display: inline-block;
+      background-color: var(--accent-soft);
+      color: var(--accent-primary);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      margin-bottom: 0.85rem;
+    }
+
+    .leadership-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .leadership-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-top: 0.75rem;
+    }
+
+    /* 8.5. Internships & Experience Section */
+    .internship-banner {
+      background: linear-gradient(135deg, var(--accent-soft), var(--bg-secondary));
+      border: 1px solid var(--accent-primary);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .internship-banner-content {
+      max-width: 680px;
+    }
+
+    .internship-banner-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #10b981;
+      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+      flex-shrink: 0;
+    }
+
+    .internship-banner p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .filter-btn {
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      background-color: var(--bg-secondary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    .filter-btn.active {
+      background-color: var(--accent-primary);
+      color: #ffffff;
+      border-color: var(--accent-primary);
+    }
+
+    .internship-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .internship-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .internship-card:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-3px);
+    }
+
+    .internship-card.placeholder-card {
+      border-style: dashed;
+      background-color: var(--bg-tertiary);
+    }
+
+    .internship-card.hidden {
+      display: none;
+    }
+
+    .internship-meta-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .role-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      background-color: var(--accent-soft);
+      color: var(--accent-primary);
+    }
+
+    .role-period {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .internship-role-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .internship-org {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.85rem;
+    }
+
+    .internship-points {
+      margin-bottom: 1.25rem;
+      padding-left: 1.1rem;
+    }
+
+    .internship-points li {
+      list-style-type: disc;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    /* 9. Contact Section & Form */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .contact-info-card,
+    .contact-form-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .email-box {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .email-address {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--accent-primary);
+      word-break: break-all;
+    }
+
+    .copy-btn {
+      align-self: flex-start;
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: var(--transition);
+    }
+
+    .copy-btn:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text-primary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .error-msg {
+      display: none;
+      font-size: 0.82rem;
+      color: var(--error-text);
+      margin-top: 0.35rem;
+    }
+
+    .form-feedback {
+      display: none;
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-sm);
+      background-color: var(--success-bg);
+      color: var(--success-text);
+      border: 1px solid var(--success-border);
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    /* 10. Footer */
+    .site-footer {
+      border-top: 1px solid var(--border-color);
+      background-color: var(--bg-secondary);
+      padding: 2rem 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .back-to-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      padding: 0.5rem 0.9rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .back-to-top:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    /* 11. Interactive Project Modal & Toast Notification */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 2000;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      max-width: 540px;
+      width: 100%;
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+      font-size: 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      padding-right: 2rem;
+    }
+
+    .modal-body {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .modal-highlights {
+      background-color: var(--bg-tertiary);
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1.25rem;
+    }
+
+    .modal-highlights li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+      list-style-type: disc;
+      margin-left: 1.1rem;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      transform: translateY(15px);
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 3000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 12. Responsive Media Queries */
+    @media (max-width: 860px) {
+      .hero-grid,
+      .edu-leadership-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        max-width: 360px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.25rem 5%;
+        gap: 1rem;
+        display: none;
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      section {
+        padding: 3.75rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. STICKY NAVIGATION HEADER
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container navbar">
+      <!-- Monogram Logo -->
+      <a href="#top" class="brand-logo" aria-label="Soaham Krishna Sharma Home">
+        <span class="brand-badge">SKS</span>
+        <span>Soaham</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#internships">Internships</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Theme Toggle & Mobile Hamburger Button -->
+      <div class="nav-actions">
+        <button type="button" class="icon-btn" id="themeToggle" aria-label="Toggle Dark or Light Theme" title="Toggle Theme">
+          <!-- Sun/Moon SVG dynamically updated via JS -->
+          <svg id="themeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button type="button" class="icon-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Navigation Menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT AREA
+       ========================================================================== -->
+  <main id="top">
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div>
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            <span>B.Tech CSE 1st Year • Section D Class Representative</span>
+          </div>
+
+          <h1 class="hero-name">Soaham Krishna Sharma</h1>
+          <p class="hero-subtitle">First-Year B.Tech Computer Science &amp; Engineering Student | South Asian University</p>
+          <p class="hero-tagline">
+            Passionate about crafting clean, accessible web interfaces and solving algorithmic challenges in C and Python.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              <span>View Projects</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+          </div>
+        </div>
+
+        <!-- Student Profile Summary Card -->
+        <aside class="hero-card" aria-label="Student Profile Summary">
+          <div class="avatar-circle" aria-hidden="true">SKS</div>
+          <strong>Soaham Krishna Sharma</strong>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.2rem;">New Delhi, India</p>
+          <div class="hero-card-meta">
+            <span><strong>Degree:</strong> B.Tech in CSE (Year 1)</span>
+            <span><strong>Focus:</strong> Web Design &amp; Algorithms</span>
+            <span><strong>Role:</strong> Class Representative (Sec D)</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 3. ABOUT ME SECTION -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">01. Introduction</span>
+          <h2 class="section-title">About Me</h2>
+        </div>
+
+        <article class="about-card">
+          <p class="about-text">
+            I am a first-year B.Tech Computer Science and Engineering student at <strong>South Asian University (2026 – Present)</strong>, building a strong foundation in programming, algorithmic thinking, and modern web standards. Alongside my coursework, I serve as the elected <strong>Class Representative for B.Tech CSE Year 1 (Section D)</strong>, coordinating academic communication between students and faculty. Outside the lecture hall, I enjoy structured problem-solving in C and Python, experimenting with responsive web design, and hands-on creative craft.
+          </p>
+
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <strong>South Asian University</strong>
+              <span>B.Tech CSE • 1st Year (2026 – Present)</span>
+            </div>
+            <div class="highlight-item">
+              <strong>Class Representative</strong>
+              <span>B.Tech CSE Year 1, Section D</span>
+            </div>
+            <div class="highlight-item">
+              <strong>92.0% &amp; 84.0%</strong>
+              <span>CBSE Class X &amp; Class XII</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. TECHNICAL SKILLS SECTION -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">02. Capabilities</span>
+          <h2 class="section-title">Technical Skills</h2>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Category 1 -->
+          <article class="skill-category-card">
+            <h3 class="skill-category-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              Programming Languages
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">C</span>
+              <span class="skill-tag">Python</span>
+            </div>
+          </article>
+
+          <!-- Category 2 -->
+          <article class="skill-category-card">
+            <h3 class="skill-category-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              Web Technologies
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">JavaScript (ES6+)</span>
+            </div>
+          </article>
+
+          <!-- Category 3 -->
+          <article class="skill-category-card">
+            <h3 class="skill-category-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+              Tools &amp; Platforms
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">VS Code</span>
+              <span class="skill-tag">Chrome DevTools &amp; Lighthouse</span>
+            </div>
+          </article>
+
+          <!-- Category 4 -->
+          <article class="skill-category-card">
+            <h3 class="skill-category-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+              Core Concepts
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Searching &amp; Sorting Algorithms</span>
+              <span class="skill-tag">Data Structures Basics</span>
+              <span class="skill-tag">Semantic Web &amp; UI/UX</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PROJECTS SECTION -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">03. Coursework &amp; Builds</span>
+          <h2 class="section-title">Featured Projects</h2>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card">
+            <div>
+              <div class="project-top">
+                <div class="project-folder-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                </div>
+                <span class="project-number">01</span>
+              </div>
+              <h3 class="project-title">University Lab Portal Redesign</h3>
+              <p class="project-desc">
+                Redesigned a structured academic faculty and research directory card layout inspired by modern engineering portals with high Lighthouse accessibility scores.
+              </p>
+            </div>
+
+            <div>
+              <div class="project-tech-list">
+                <span class="tech-pill">HTML5</span>
+                <span class="tech-pill">CSS3</span>
+                <span class="tech-pill">UI/UX</span>
+              </div>
+              <button type="button" class="project-action-btn" data-project="0">
+                <span>View Architecture Details</span>
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card">
+            <div>
+              <div class="project-top">
+                <div class="project-folder-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                </div>
+                <span class="project-number">02</span>
+              </div>
+              <h3 class="project-title">Algorithmic Search &amp; Sort Toolkit</h3>
+              <p class="project-desc">
+                Custom implementations of Linear Search, Binary Search, and sorting algorithms written from scratch in standard C without external libraries.
+              </p>
+            </div>
+
+            <div>
+              <div class="project-tech-list">
+                <span class="tech-pill">C</span>
+                <span class="tech-pill">Algorithms</span>
+                <span class="tech-pill">Problem Solving</span>
+              </div>
+              <button type="button" class="project-action-btn" data-project="1">
+                <span>View Architecture Details</span>
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card">
+            <div>
+              <div class="project-top">
+                <div class="project-folder-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                </div>
+                <span class="project-number">03</span>
+              </div>
+              <h3 class="project-title">Personal Resume Portfolio</h3>
+              <p class="project-desc">
+                Responsive, semantic personal portfolio website built with vanilla HTML, CSS, and JavaScript featuring theme switching and form validation.
+              </p>
+            </div>
+
+            <div>
+              <div class="project-tech-list">
+                <span class="tech-pill">HTML5</span>
+                <span class="tech-pill">CSS3</span>
+                <span class="tech-pill">JavaScript</span>
+              </div>
+              <button type="button" class="project-action-btn" data-project="2">
+                <span>View Architecture Details</span>
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5.5. INTERNSHIPS & EXPERIENCE SECTION -->
+    <section id="internships">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">04. Experience &amp; Readiness</span>
+          <h2 class="section-title">Internships &amp; Campus Experience</h2>
+        </div>
+
+        <!-- Summer 2027 Internship Availability Banner -->
+        <div class="internship-banner">
+          <div class="internship-banner-content">
+            <h3 class="internship-banner-title">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              <span>Open to Summer 2027 Technical Internships</span>
+            </h3>
+            <p>
+              Actively building foundational engineering skills in Year 1 and seeking beginner-friendly internship or research assistant opportunities starting <strong>May – July 2027</strong> in <strong>Frontend Web Development</strong>, <strong>Python &amp; Data Science / ML Foundations</strong>, and <strong>Software Engineering</strong>.
+            </p>
+          </div>
+          <a href="#contact" class="btn btn-primary">Discuss Opportunities</a>
+        </div>
+
+        <!-- Interactive Category Filter Tabs -->
+        <div class="filter-tabs" role="tablist" aria-label="Filter Internships and Experience">
+          <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Experience</button>
+          <button type="button" class="filter-btn" data-filter="campus" role="tab" aria-selected="false">Campus &amp; Lab Roles</button>
+          <button type="button" class="filter-btn" data-filter="target" role="tab" aria-selected="false">Target Internships &amp; Roadmap</button>
+        </div>
+
+        <!-- Experience & Internship Cards Grid -->
+        <div class="internship-grid" id="internshipGrid">
+          <!-- Card 1: Lab & Web Portal Contributor -->
+          <article class="internship-card" data-category="campus">
+            <div>
+              <div class="internship-meta-top">
+                <span class="role-badge">Academic Lab Role</span>
+                <span class="role-period">Oct 2026 – Present</span>
+              </div>
+              <h3 class="internship-role-title">Lab &amp; Web Portal Contributor</h3>
+              <p class="internship-org">Laboratory of Social Analytics and Network Science, SAU</p>
+              <ul class="internship-points">
+                <li>Designed and structured responsive faculty and research profile cards using semantic HTML5 and modern CSS Grid.</li>
+                <li>Audited UI accessibility, typography hierarchy, and mobile responsiveness using Chrome Lighthouse.</li>
+              </ul>
+            </div>
+            <div class="project-tech-list" style="margin-bottom: 0;">
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3</span>
+              <span class="tech-pill">Web Accessibility</span>
+            </div>
+          </article>
+
+          <!-- Card 2: Class Representative -->
+          <article class="internship-card" data-category="campus">
+            <div>
+              <div class="internship-meta-top">
+                <span class="role-badge">Leadership</span>
+                <span class="role-period">Sept 2026 – Present</span>
+              </div>
+              <h3 class="internship-role-title">Elected Class Representative (Section D)</h3>
+              <p class="internship-org">B.Tech CSE Year 1 • South Asian University</p>
+              <ul class="internship-points">
+                <li>Serve as the official student-faculty liaison for Section D, coordinating schedules, lab updates, and academic announcements.</li>
+                <li>Facilitate peer communication and organize collaborative study discussions for C programming and web design coursework.</li>
+              </ul>
+            </div>
+            <div class="project-tech-list" style="margin-bottom: 0;">
+              <span class="tech-pill">Communication</span>
+              <span class="tech-pill">Team Coordination</span>
+            </div>
+          </article>
+
+          <!-- Card 3: Target Internship Track -->
+          <article class="internship-card" data-category="target">
+            <div>
+              <div class="internship-meta-top">
+                <span class="role-badge">Target Track • 2027</span>
+                <span class="role-period">Summer 2027</span>
+              </div>
+              <h3 class="internship-role-title">Frontend &amp; Python Engineering Intern</h3>
+              <p class="internship-org">Target Domains: Web Dev • Python • Data / ML Foundations</p>
+              <ul class="internship-points">
+                <li><strong>Web Development:</strong> Building responsive, accessible web interfaces with HTML5, CSS3, and JavaScript.</li>
+                <li><strong>Programming &amp; Data:</strong> Strengthening problem-solving in C and Python alongside introductory data analysis workflows.</li>
+              </ul>
+            </div>
+            <div class="project-tech-list" style="margin-bottom: 0;">
+              <span class="tech-pill">Frontend Dev</span>
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Git &amp; GitHub</span>
+            </div>
+          </article>
+
+          <!-- Card 4: Scalable Industry Internship Slot -->
+          <article class="internship-card placeholder-card" data-category="target">
+            <div>
+              <div class="internship-meta-top">
+                <span class="role-badge">Upcoming Role Slot</span>
+                <span class="role-period">2027+</span>
+              </div>
+              <h3 class="internship-role-title">Software / Research Internship</h3>
+              <p class="internship-org">Open for Summer 2027 Industry or Academic Research Roles</p>
+              <ul class="internship-points">
+                <li>Dedicated slot for upcoming formal industry software engineering or academic research internships.</li>
+                <li>Available for remote or New Delhi / NCR on-site summer internships upon completion of Year 1 coursework.</li>
+              </ul>
+            </div>
+            <a href="#contact" class="project-action-btn" style="border-top-color: var(--border-color);">
+              <span>Connect for Internship Roles</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 & 7. EDUCATION & LEADERSHIP SECTION -->
+    <section id="education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">05. Background</span>
+          <h2 class="section-title">Education &amp; Leadership</h2>
+        </div>
+
+        <div class="edu-leadership-grid">
+          <!-- Education Timeline -->
+          <div class="timeline" aria-label="Academic Timeline">
+            <article class="timeline-item">
+              <span class="timeline-year">2026 – Present (1st Year)</span>
+              <h3 class="timeline-title">B.Tech in Computer Science &amp; Engineering</h3>
+              <p class="timeline-org">South Asian University, New Delhi</p>
+              <span class="score-badge">Currently in 1st Year</span>
+            </article>
+
+            <article class="timeline-item">
+              <span class="timeline-year">2026</span>
+              <h3 class="timeline-title">Class XII (Senior Secondary, CBSE)</h3>
+              <p class="timeline-org">Central Board of Secondary Education</p>
+              <span class="score-badge">Aggregate: 84.0%</span>
+            </article>
+
+            <article class="timeline-item">
+              <span class="timeline-year">2024</span>
+              <h3 class="timeline-title">Class X (Secondary, CBSE)</h3>
+              <p class="timeline-org">Central Board of Secondary Education</p>
+              <span class="score-badge">Aggregate: 92.0%</span>
+            </article>
+          </div>
+
+          <!-- Leadership & Activities -->
+          <aside class="leadership-card" aria-label="Leadership and Responsibilities">
+            <span class="leadership-badge">Student Leadership</span>
+            <h3>Elected Class Representative (C.R.)</h3>
+            <p style="font-weight: 600; color: var(--text-primary); margin-top: 0.25rem;">
+              B.Tech CSE Year 1, Section D
+            </p>
+            <p>
+              Acting as the primary liaison between first-year CSE students and faculty members—coordinating timetable updates, academic announcements, assignment deadlines, and peer feedback across the section.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONTACT SECTION -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">06. Connect</span>
+          <h2 class="section-title">Get In Touch</h2>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Direct Contact Info -->
+          <div class="contact-info-card">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.6rem;">Let's Collaborate</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+              Whether you want to discuss first-year CSE coursework, web design ideas, or C/Python programming problems, feel free to reach out directly via email or the contact form.
+            </p>
+
+            <div class="email-box">
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Direct Email</span>
+              <a href="mailto:soaham.krishna@outlook.com" class="email-address" id="emailText">
+                soaham.krishna@outlook.com
+              </a>
+              <button type="button" class="copy-btn" id="copyEmailBtn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy Email</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="contact-form-card">
+            <form id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="senderName" class="form-label">Full Name</label>
+                <input type="text" id="senderName" name="name" class="form-control" placeholder="e.g., Dr. A. Verma or Rohan Mehta" required>
+                <span class="error-msg" id="nameError">Please enter your name (at least 2 characters).</span>
+              </div>
+
+              <div class="form-group">
+                <label for="senderEmail" class="form-label">Email Address</label>
+                <input type="email" id="senderEmail" name="email" class="form-control" placeholder="you@example.com" required>
+                <span class="error-msg" id="emailError">Please enter a valid email address.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="senderMessage" class="form-label">Message</label>
+                <textarea id="senderMessage" name="message" class="form-control" placeholder="Write your message or feedback here..." required></textarea>
+                <span class="error-msg" id="messageError">Please enter a message (at least 10 characters).</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Send Message
+              </button>
+
+              <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">&copy; 2026 Soaham Krishna Sharma. Built with semantic HTML5, CSS3 &amp; Vanilla JavaScript.</p>
+      <a href="#top" class="back-to-top" aria-label="Scroll back to top">
+        <span>Back to Top</span>
+        <span aria-hidden="true">&uarr;</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       PROJECT DETAILS MODAL & TOAST NOTIFICATION
+       ========================================================================== -->
+  <div class="modal-backdrop" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="closeModalBtn" aria-label="Close Project Details">&times;</button>
+      <h3 class="modal-title" id="modalTitle">Project Title</h3>
+      <p class="modal-body" id="modalDesc">Project description goes here.</p>
+      <ul class="modal-highlights" id="modalHighlights"></ul>
+      <div class="project-tech-list" id="modalTags"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toastNotification" role="status" aria-live="polite"></div>
+
+  <!-- ==========================================================================
+       VANILLA JAVASCRIPT (THEME TOGGLE, MOBILE NAV, MODAL, COPY & VALIDATION)
+       ========================================================================== -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      /* ----------------------------------------------------------------------
+         1. Light / Dark Theme Toggle
+         ---------------------------------------------------------------------- */
+      const htmlEl = document.documentElement;
+      const themeToggleBtn = document.getElementById("themeToggle");
+      const themeIcon = document.getElementById("themeIcon");
+
+      const sunSVG = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+      const moonSVG = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+
+      function setTheme(theme) {
+        htmlEl.setAttribute("data-theme", theme);
+        themeIcon.innerHTML = theme === "dark" ? sunSVG : moonSVG;
+        try {
+          localStorage.setItem("sks-theme", theme);
+        } catch (e) {
+          // Ignore storage restrictions in sandboxed environments
+        }
+      }
+
+      // Check saved preference or OS preference
+      let savedTheme = null;
+      try {
+        savedTheme = localStorage.getItem("sks-theme");
+      } catch (e) {}
+
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        setTheme("dark");
+      }
+
+      themeToggleBtn.addEventListener("click", () => {
+        const currentTheme = htmlEl.getAttribute("data-theme");
+        setTheme(currentTheme === "light" ? "dark" : "light");
+      });
+
+      /* ----------------------------------------------------------------------
+         2. Mobile Hamburger Navigation Toggle
+         ---------------------------------------------------------------------- */
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("active");
+        mobileMenuBtn.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      // Close mobile menu when a link is clicked
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          mobileMenuBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      /* ----------------------------------------------------------------------
+         3. Toast Notification Helper
+         ---------------------------------------------------------------------- */
+      const toastEl = document.getElementById("toastNotification");
+      let toastTimeout;
+
+      function showToast(message) {
+        toastEl.textContent = message;
+        toastEl.classList.add("show");
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toastEl.classList.remove("show");
+        }, 3000);
+      }
+
+      /* ----------------------------------------------------------------------
+         4. Copy Email Button (with execCommand fallback for iFrame safety)
+         ---------------------------------------------------------------------- */
+      const copyEmailBtn = document.getElementById("copyEmailBtn");
+      const emailAddress = "soaham.krishna@outlook.com";
+
+      copyEmailBtn.addEventListener("click", () => {
+        const tempInput = document.createElement("input");
+        tempInput.value = emailAddress;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        try {
+          document.execCommand("copy");
+          showToast("Copied: soaham.krishna@outlook.com");
+        } catch (err) {
+          showToast("Email: soaham.krishna@outlook.com");
+        }
+        document.body.removeChild(tempInput);
+      });
+
+      /* ----------------------------------------------------------------------
+         5. Interactive Project Details Modal
+         ---------------------------------------------------------------------- */
+      const projectData = [
+        {
+          title: "University Lab Portal Redesign",
+          desc: "A clean, responsive faculty and research laboratory directory built using semantic HTML5 landmarks and CSS Grid to improve information hierarchy and readability.",
+          highlights: [
+            "Structured faculty profile cards with clear typography and contrast ratios.",
+            "Mobile-first CSS Grid layout adapting smoothly from 1 to 3 columns.",
+            "Audited with Chrome Lighthouse for high Accessibility and Best Practices scores."
+          ],
+          tags: ["HTML5", "CSS3", "UI/UX", "Accessibility"]
+        },
+        {
+          title: "Algorithmic Search & Sort Toolkit",
+          desc: "A console-based C toolkit implementing foundational searching and sorting algorithms from scratch to analyze time complexity and edge cases.",
+          highlights: [
+            "Implemented Linear Search and iterative/recursive Binary Search on sorted arrays.",
+            "Built Bubble Sort, Selection Sort, and Insertion Sort with comparison counters.",
+            "Written in standard ANSI C without external third-party libraries."
+          ],
+          tags: ["C", "Algorithms", "Data Structures", "Problem Solving"]
+        },
+        {
+          title: "Personal Resume Portfolio",
+          desc: "Designed and coded from scratch as a first-year B.Tech CSE web designing assignment, emphasizing clean code organization, responsiveness, and vanilla JS interactivity.",
+          highlights: [
+            "Semantic HTML5 structure (<header>, <nav>, <main>, <section>, <article>, <footer>).",
+            "CSS custom properties powering instant Light and Dark theme switching.",
+            "Client-side JavaScript form validation, clipboard copy utility, and modal previews."
+          ],
+          tags: ["HTML5", "CSS3", "JavaScript (ES6+)"]
+        }
+      ];
+
+      const modal = document.getElementById("projectModal");
+      const closeModalBtn = document.getElementById("closeModalBtn");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDesc = document.getElementById("modalDesc");
+      const modalHighlights = document.getElementById("modalHighlights");
+      const modalTags = document.getElementById("modalTags");
+
+      document.querySelectorAll(".project-action-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const index = Number(btn.getAttribute("data-project"));
+          const item = projectData[index];
+          if (!item) return;
+
+          modalTitle.textContent = item.title;
+          modalDesc.textContent = item.desc;
+          modalHighlights.innerHTML = item.highlights.map((h) => `<li>${h}</li>`).join("");
+          modalTags.innerHTML = item.tags.map((t) => `<span class="tech-pill">${t}</span>`).join("");
+
+          modal.classList.add("open");
+        });
+      });
+
+      function closeModal() {
+        modal.classList.remove("open");
+      }
+
+      closeModalBtn.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("open")) {
+          closeModal();
+        }
+      });
+
+      /* ----------------------------------------------------------------------
+         5.5. Internships & Experience Category Filter
+         ---------------------------------------------------------------------- */
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const internshipCards = document.querySelectorAll(".internship-card");
+
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // Update active button state & ARIA attributes
+          filterButtons.forEach((b) => {
+            b.classList.remove("active");
+            b.setAttribute("aria-selected", "false");
+          });
+          btn.classList.add("active");
+          btn.setAttribute("aria-selected", "true");
+
+          const selectedFilter = btn.getAttribute("data-filter");
+
+          internshipCards.forEach((card) => {
+            const cardCategory = card.getAttribute("data-category");
+            if (selectedFilter === "all" || cardCategory === selectedFilter) {
+              card.classList.remove("hidden");
+            } else {
+              card.classList.add("hidden");
+            }
+          });
+        });
+      });
+
+      /* ----------------------------------------------------------------------
+         6. Contact Form Validation & Instant Feedback
+         ---------------------------------------------------------------------- */
+      const contactForm = document.getElementById("contactForm");
+      const nameInput = document.getElementById("senderName");
+      const emailInput = document.getElementById("senderEmail");
+      const messageInput = document.getElementById("senderMessage");
+
+      const nameError = document.getElementById("nameError");
+      const emailError = document.getElementById("emailError");
+      const messageError = document.getElementById("messageError");
+      const formFeedback = document.getElementById("formFeedback");
+
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let isValid = true;
+
+        // Validate Name
+        if (nameInput.value.trim().length < 2) {
+          nameError.style.display = "block";
+          isValid = false;
+        } else {
+          nameError.style.display = "none";
+        }
+
+        // Validate Email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value.trim())) {
+          emailError.style.display = "block";
+          isValid = false;
+        } else {
+          emailError.style.display = "none";
+        }
+
+        // Validate Message
+        if (messageInput.value.trim().length < 10) {
+          messageError.style.display = "block";
+          isValid = false;
+        } else {
+          messageError.style.display = "none";
+        }
+
+        if (isValid) {
+          const sender = nameInput.value.trim();
+          formFeedback.textContent = `Thank you, ${sender}! Your message has been validated and recorded. You can also reach Soaham directly at soaham.krishna@outlook.com.`;
+          formFeedback.style.display = "block";
+          contactForm.reset();
+          showToast("Message sent successfully!");
+        } else {
+          formFeedback.style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
